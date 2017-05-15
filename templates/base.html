@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {% block title %}<title>Users Blog</title>{% endblock title %}
+
+    <link href="{% static 'libs/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <link href="{% static 'css/blog.css' %}" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<div class="blog-masthead">
+    <div class="container">
+        <nav class="blog-nav">
+            <a class="blog-nav-item {% if request.path == '/' %}active{% endif %}" href="/">Home</a>
+            {% if request.user.is_authenticated %}
+            <a class="blog-nav-item" href="/logout">Logout</a>
+            {% else %}
+            <a class="blog-nav-item {% if 'login' in request.path %}active{% endif %}" href="/login">Login</a>
+            <a class="blog-nav-item {% if 'sign-up' in request.path %}active{% endif %}" href="/signup">Sign Up</a>
+            {% endif %}
+        </nav>
+    </div>
+</div>
+
+<div class="container">
+    {% block blog_title %}{% endblock %}
+
+    <div class="row">
+
+        {% block content %}{% endblock %}
+
+    </div>
+
+</div>
+
+<footer class="blog-footer">
+    <p>
+        <a href="#">Back to top</a>
+    </p>
+</footer>
+
+<script src="{% static 'js/jquery-2.1.4.min.js' %}"></script>
+<script src="{% static 'libs/bootstrap/js/bootstrap.min.js' %}"></script>
+</body>
+</html>
