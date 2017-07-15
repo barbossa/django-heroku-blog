@@ -1,5 +1,5 @@
 # django-blog-heroku
-Demo app for article [How to Deploy a Django Application on Heroku?](https://gearheart.io/blog/)
+Demo app for article [How to Deploy a Django Application on Heroku?](https://gearheart.io/blog/how-to-deploy-a-django-application-on-heroku/)
 # Installation
 1. git clone git@github.com:barbossa/django-heroku-blog.git
 2. cd django-heroku-blog
